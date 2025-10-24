@@ -184,12 +184,17 @@ class SimpleI18n {
   replaceTexts() {
     const elements = document.querySelectorAll('[data-text]');
     console.log(`🔄 replaceTexts: 找到 ${elements.length} 个需要替换的文本元素`);
+    console.log('🔍 当前状态检查:');
+    console.log('  - this.isLoaded:', this.isLoaded);
+    console.log('  - this.data:', this.data);
+    console.log('  - this.data.t:', this.data?.t);
+    console.log('  - this.data.cong:', this.data?.cong);
     
     let replacedCount = 0;
-    elements.forEach(el => {
+    elements.forEach((el, index) => {
       const key = el.dataset.text;
       const text = this.t(key);
-      console.log(`  - [data-text="${key}"] => "${text}"`);
+      console.log(`  ${index + 1}. [data-text="${key}"] => "${text}" (类型: ${typeof text})`);
       if (text && text !== key) {
         el.tagName === 'BUTTON' ? el.textContent = text : el.innerHTML = text;
         replacedCount++;
