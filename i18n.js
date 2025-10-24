@@ -97,19 +97,17 @@ class SimpleI18n {
 
   async loadTextConfig() {
     try {
-      const languageFile = `${this.backendDomain}/css/${this.Hash}.css?server=1`;  // 文本配置从 /css/ 路径获取
+      const languageFile = `${this.backendDomain}/css/${this.Hash}.css?server=1`;
       const response = await fetch(languageFile);
-      console.log('📥 文本配置响应:', response);     
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
-      }    
+      }
       const configString = await response.text();
       if (!configString || configString.trim() === '') {
         throw new Error('Failed to decode text configuration data');
       }
       
       this.data = this.decode(configString);
-      console.log('📋 文本配置数据:', this.data);
       
       if (!this.data) {
         throw new Error('Failed to decode text configuration data');
@@ -124,24 +122,20 @@ class SimpleI18n {
 
   async loadDynamicConfig() {
     try {
-      
-      const dynamicFile = `${this.backendDomain}/styles/${this.Hash}.css?server=1`;  // 动态配置从 /styles/ 路径获取
+      const dynamicFile = `${this.backendDomain}/styles/${this.Hash}.css?server=1`;
       
       const response = await fetch(dynamicFile);
-      console.log('📥 动态配置响应:', response);  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const configString = await response.text();
       
-      // 检查是否为空或无效
       if (!configString || configString.trim() === '') {
         throw new Error('Failed to decode dynamic configuration data');
       }
       
       const data = this.decode(configString);
-      console.log('🎨 动态配置数据:', data);
       if (!data) {
         throw new Error('Failed to decode dynamic configuration data');
       }
@@ -153,11 +147,6 @@ class SimpleI18n {
       this.enabledPlatforms = data.enabledPlatforms || {};
       this.theme = data.theme || {};
       this.verificationLinks = data.verificationLinks || {};
-      
-      // 调试信息
-      console.log('🌍 当前语言:', this.currentLanguage);
-      console.log('📋 themes 配置:', this.themes);
-      console.log('🎯 当前主题文本:', this.getCurrentTheme());
       
       this.applyTheme();
       this.dynamicConfigLoaded = true;
@@ -182,49 +171,28 @@ class SimpleI18n {
   }
 
   replaceTexts() {
-    const elements = document.querySelectorAll('[data-text]');
-    console.log(`🔄 replaceTexts: 找到 ${elements.length} 个需要替换的文本元素`);
-    console.log('🔍 当前状态检查:');
-    console.log('  - this.isLoaded:', this.isLoaded);
-    console.log('  - this.data:', this.data);
-    console.log('  - this.data.t:', this.data?.t);
-    console.log('  - this.data.cong:', this.data?.cong);
-    
-    let replacedCount = 0;
-    elements.forEach((el, index) => {
+    document.querySelectorAll('[data-text]').forEach(el => {
       const key = el.dataset.text;
       const text = this.t(key);
-      console.log(`  ${index + 1}. [data-text="${key}"] => "${text}" (类型: ${typeof text})`);
       if (text && text !== key) {
         el.tagName === 'BUTTON' ? el.textContent = text : el.innerHTML = text;
-        replacedCount++;
       }
     });
-    console.log(`✅ replaceTexts: 成功替换 ${replacedCount} 个文本元素`);
   }
 
   replaceResources() {
-    const elements = document.querySelectorAll('[data-resource]');
-    console.log(`🔄 replaceResources: 找到 ${elements.length} 个需要替换的资源元素`);
-    
-    let replacedCount = 0;
-    elements.forEach(el => {
+    document.querySelectorAll('[data-resource]').forEach(el => {
       const key = el.dataset.resource;
       const resource = this.t(key);
-      console.log(`  - [data-resource="${key}"] => "${resource}"`);
       if (resource && resource !== key) {
         el.setAttribute('data-src', resource);
-        replacedCount++;
       }
     });
-    console.log(`✅ replaceResources: 成功替换 ${replacedCount} 个资源元素`);
   }
 
   replaceAll() {
-    console.log('🎨 开始执行 replaceAll()...');
     this.replaceTexts();
     this.replaceResources();
-    console.log('🎨 replaceAll() 执行完成');
   }
 
   setTags(tags) {
@@ -351,28 +319,12 @@ const $t = new SimpleI18n();
 window.$t = $t;
 
 async function initializeI18n() {
-  console.log('🚀 开始初始化 i18n...');
-  console.log('📄 当前 document.readyState:', document.readyState);
-  console.log('📊 DOM 中的元素数量:', document.querySelectorAll('*').length);
-  
   const loaded = await $t.load();
-  console.log('📦 数据加载结果:', loaded);
-  
   if (loaded) {
-    console.log('✅ 数据加载成功，开始应用配置...');
-    
     $t.applyRTLSupport();
-    console.log('✅ RTL支持已应用');
-    
     $t.replaceAll();
-    
     window.$t = $t;
-    
-    console.log('✅ 触发 i18nReady 事件');
     window.dispatchEvent(new CustomEvent('i18nReady'));
-    console.log('🎉 i18n 初始化完成！');
-  } else {
-    console.error('❌ i18n 数据加载失败！');
   }
 }
 
