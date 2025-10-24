@@ -1,0 +1,1155 @@
+:root {
+    --primary-color: #0066cc;
+    --primary-hover: #0052a3;
+    --accent-color: #e60012;
+    --text-color: #333;
+    --text-light: #666;
+    --text-muted: #999;
+    --background-light: #f5f5f5;
+    --background-section: #f9f9f9;
+    --white: #ffffff;
+    --border-color: #ddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0;
+    background-color: var(--white);
+    box-shadow: none;
+    min-height: 100vh;
+}
+
+/* 固定头部 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.logo {
+    height: 30px;
+    width: auto;
+}
+
+.banner {
+    background-color: var(--primary-color);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    margin-top: 60px; /* 为固定头部留出空间 */
+    font-size: 14px;
+}
+
+.banner-l {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    font-size: 12px;
+}
+
+.crown {
+    font-size: 16px;
+}
+
+.gift-icon {
+    font-size: 16px;
+}
+
+.banner-r {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.main-content {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.congratulations {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.building-image {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.building-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.q {
+    margin: 30px 0;
+}
+
+.question {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    line-height: 1.3;
+    padding: 0 10px;
+}
+
+.question-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* 答题按钮样式 */
+.btn {
+    padding: 12px 16px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.comments-section {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--background-section);
+}
+
+.comments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ct {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.cc {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.comment {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--text-light);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.comment-text {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.comment-time {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.thumbs {
+    display: flex;
+    gap: 8px;
+}
+
+.thumb {
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.thumb svg {
+    fill: currentColor;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+}
+
+
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.btn.selected {
+    background-color: var(--accent-color);
+}
+
+.btn input[type="radio"] {
+    display: none;
+}
+
+/* 验证过程样式 */
+.verify {
+    text-align: center;
+    padding: 40px 20px;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lottery {
+    text-align: center;
+    padding: 15px 8px;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lottery h2 {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.gift-box {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    max-width: 90px;
+    max-height: 90px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+
+/* 已打开的礼盒样式 */
+.gift-box.opened {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+.gift-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.5s ease;
+}
+
+/* 礼盒各部分层级 - 使用可读类名 */
+.gift-lid { /* 礼盒盖子 - 最上层 */
+    z-index: 4;
+}
+
+.gift-prize { /* 奖品 - 在盖子下面，内衬和盒体上面 */
+    z-index: 3;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.gift-body { /* 礼盒盒体 - 在奖品下面 */
+    z-index: 2;
+}
+
+.gift-lining { /* 礼盒内衬 - 最底层 */
+    z-index: 1;
+}
+
+.gift-box.opening .gift-lid {
+    transform: translateY(-60px) rotate(15deg);
+    opacity: 0;
+}
+
+.gift-box.opening .gift-prize {
+    opacity: 1;
+    transform: translateY(-15px) scale(0.85);
+    animation: prizeAppear 1.2s ease-out 0.3s both, prizeBreathe 2s ease-in-out 1.5s infinite;
+}
+
+/* 不中奖时只显示空盒子 */
+.gift-box.no-win .gift-lid {
+    transform: translateY(-60px) rotate(15deg);
+    opacity: 0;
+}
+
+.gift-box.no-win .gift-prize {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+@keyframes prizeAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.5) rotate(-10deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-25px) scale(1.0) rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-15px) scale(0.85) rotate(0deg);
+    }
+}
+
+@keyframes prizeBreathe {
+    0% {
+        transform: translateY(-15px) scale(0.85);
+    }
+    50% {
+        transform: translateY(-20px) scale(0.9);
+    }
+    100% {
+        transform: translateY(-15px) scale(0.85);
+    }
+}
+
+/* 礼炮爆炸效果样式 */
+.fire {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10001;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation: firework-explode 2s ease-out forwards;
+}
+
+.firework:nth-child(odd) {
+    background: #ff6b6b;
+}
+
+.firework:nth-child(even) {
+    background: #4ecdc4;
+}
+
+.firework:nth-child(3n) {
+    background: #f9ca24;
+}
+
+.firework:nth-child(4n) {
+    background: #6c5ce7;
+}
+
+.firework:nth-child(5n) {
+    background: #eb4d4b;
+}
+
+/* 礼炮爆炸动画 */
+@keyframes firework-explode {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0) translate(var(--random-x, 0), var(--random-y, 0));
+        opacity: 0;
+    }
+}
+
+/* 礼炮爆炸效果 - 多个爆炸点 */
+.firework-explosion {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    animation: explosion 1.5s ease-out forwards;
+}
+
+.firework-explosion::before,
+.firework-explosion::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.firework-explosion::before {
+    animation: spark 1.5s ease-out forwards;
+}
+
+.firework-explosion::after {
+    animation: spark 1.5s ease-out 0.2s forwards;
+}
+
+@keyframes explosion {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes spark {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--spark-x, 0), var(--spark-y, 0)) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(calc(var(--spark-x, 0) * 2), calc(var(--spark-y, 0) * 2)) scale(0);
+        opacity: 0;
+    }
+}
+
+
+.verify h2 {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+/* Loading动画 */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--background-light);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+/* 验证成功图标 */
+.verification-success-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    animation: successPulse 0.6s ease-in-out;
+}
+
+.verification-success-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes successPulse {
+    0% { 
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.verification-message {
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 4px 4px;
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+}
+
+.verification-message:last-child {
+    border-bottom: none;
+}
+
+
+/* 弹窗基础样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 25px 20px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    margin: 20px;
+}
+
+/* 弹窗内容样式 */
+.modal-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.modal-body {
+    margin-bottom: 25px;
+}
+
+.modal-message-bold {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.modal-message {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* 弹窗媒体样式 */
+.modal-image {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+/* 弹窗按钮样式 */
+.modal-ok-btn,
+.btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* 弹窗图标样式 */
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ff9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+    animation: iconPulse 0.6s ease-in-out;
+}
+
+/* 弹窗动画 */
+@keyframes iconPulse {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 弹窗规则样式 */
+.modal-rules {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.modal-rules-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.modal-rule {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 奖品容器样式 */
+.prize {
+    padding: 20px 15px;
+    min-height: 100vh;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.pt {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 奖品展示区域 */
+.prize-display {
+    margin-bottom: 30px;
+}
+
+.pi {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.prize-text {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 分享说明区域 */
+.share {
+    background: #e9ecef;
+    padding: 25px 20px;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.instruction-text {
+    margin-bottom: 25px;
+}
+
+.instruction-text p {
+    font-size: 14px;
+    color: #555;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* 分享按钮 */
+.share-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 56px;
+}
+
+.share-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 110px;
+}
+
+.share-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.share-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.share-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.messenger-btn {
+    background: #006AFF;
+    color: white;
+}
+
+.telegram-btn {
+    background: #0088cc;
+    color: white;
+}
+
+.line-btn {
+    background: #00C300;
+    color: white;
+}
+
+.viber-btn {
+    background: #665CAC;
+    color: white;
+}
+
+/* 分享进度 */
+.share-progress {
+    margin-bottom: 25px;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    position: relative;
+    background: #ddd;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+}
+
+/* 继续按钮 */
+.cont {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* 完成验证区域样式 */
+.done {
+    background: #ffffff;
+    padding: 20px 15px;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.verification-content {
+    text-align: left;
+}
+
+.verification-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 18px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.verification-section {
+    margin-bottom: 25px;
+}
+
+.verification-methods-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.verification-methods-text {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.importance-notice {
+    font-size: 12px;
+    color: #e74c3c;
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    background: #ffeaea;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #e74c3c;
+}
+
+.verify-instruction {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.verification-buttons {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.vbtn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vbtn.primary {
+    background: var(--primary-color);
+    color: white;
+    flex: 2;
+}
+
+.vbtn.secondary {
+    background: #6c757d;
+    color: white;
+    flex: 1;
+}
+
+.vbtn.full {
+    background: var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    font-size: 13px;
+    min-height: 48px;
+}
+
+/* RTL 语言支持样式 */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+}
+
+/* RTL 布局调整 */
+[dir="rtl"] .container {
+    text-align: right;
+}
+
+[dir="rtl"] .header-content {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .comments-header {
+    flex-direction: row-reverse;
+}
+
+/* RTL 按钮和输入框调整 */
+[dir="rtl"] .btn,
+[dir="rtl"] .cont,
+
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"] {
+    text-align: right;
+}
+
+/* RTL 数字和英文保持 LTR */
+[dir="rtl"] .num,
+[dir="rtl"] .cc,
+[dir="rtl"] .demo-date,
+[dir="rtl"] .demo-price {
+    direction: ltr;
+    text-align: left;
+    display: inline-block;
+}
+
+[dir="rtl"] .modal-message {
+    text-align: right;
+}
+
+[dir="rtl"] .prize-text {
+    text-align: right;
+}
+
+/* RTL 验证区域调整 */
+[dir="rtl"] .verification-content {
+    text-align: right;
+}
+
+[dir="rtl"] .verification-section {
+    text-align: right;
+}
+
+[dir="rtl"] .verification-methods-title,
+[dir="rtl"] .verification-methods-text,
+[dir="rtl"] .importance-notice,
+[dir="rtl"] .verify-instruction {
+    text-align: right;
+}
+
+/* RTL 分享说明调整 */
+[dir="rtl"] .instruction-text {
+    text-align: right;
+}
+
+[dir="rtl"] .instruction-text p {
+    text-align: right;
+}
+
+/* RTL 评论区域调整 */
+[dir="rtl"] .ct {
+    text-align: right;
+}
+
+[dir="rtl"] .modal-rule {
+    text-align: right;
+}
+
+[dir="rtl"] .verification-message {
+    text-align: right;
+}
+
