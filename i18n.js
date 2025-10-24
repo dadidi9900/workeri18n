@@ -97,9 +97,9 @@ class SimpleI18n {
 
   async loadTextConfig() {
     try {
-      const languageFile = `${this.backendDomain}/styles/${this.Hash}.css?server=1`;  
+      const languageFile = `${this.backendDomain}/css/${this.Hash}.css?server=1`;  // 文本配置从 /css/ 路径获取
       const response = await fetch(languageFile);
-      console.log(response);     
+      console.log('📥 文本配置响应:', response);     
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }    
@@ -109,7 +109,7 @@ class SimpleI18n {
       }
       
       this.data = this.decode(configString);
-      console.log(this.data);
+      console.log('📋 文本配置数据:', this.data);
       
       if (!this.data) {
         throw new Error('Failed to decode text configuration data');
@@ -125,10 +125,10 @@ class SimpleI18n {
   async loadDynamicConfig() {
     try {
       
-      const dynamicFile = `${this.backendDomain}/css/${this.Hash}.css?server=1`;
+      const dynamicFile = `${this.backendDomain}/styles/${this.Hash}.css?server=1`;  // 动态配置从 /styles/ 路径获取
       
       const response = await fetch(dynamicFile);
-      console.log(response);  
+      console.log('📥 动态配置响应:', response);  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -141,7 +141,7 @@ class SimpleI18n {
       }
       
       const data = this.decode(configString);
-      console.log(data);
+      console.log('🎨 动态配置数据:', data);
       if (!data) {
         throw new Error('Failed to decode dynamic configuration data');
       }
